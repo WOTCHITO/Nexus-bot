@@ -1,31 +1,63 @@
-//Este comando aun falta hacer algunos arreglos
-//Créditos a @Danieldiod
+import axios from 'axios'
+const {proto, generateWAMessageFromContent, prepareWAMessageMedia, generateWAMessageContent, getDevice} = (await import("@whiskeysockets/baileys")).default
 
-import fetch from 'node-fetch';
+let handler = async (message, { conn, text, usedPrefix, command }) => {
+if (!text) return conn.reply(message.chat, '🍟 *¿Que quieres buscar en tiktok?*', message, rcanal)
+async function createVideoMessage(url) {
+const { videoMessage } = await generateWAMessageContent({ video: { url } }, { upload: conn.waUploadToServer })
+return videoMessage
+}
+async function shuffleArray(array) {
+for (let i = array.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]]
+}
+}
+try {
+await message.react(rwait)
+conn.reply(message.chat, '🚩 *Descargando Su Video...*', message, {
+contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
+title: packname,
+body: wm,
+previewType: 0, thumbnail: icons,
+sourceUrl: channel }}})
+let results = []
+let { data: response } = await axios.get('https://apis-starlights-team.koyeb.app/starlight/tiktoksearch?text=' + text)
+let searchResults = response.data
+shuffleArray(searchResults)
+let selectedResults = searchResults.splice(0, 7)
+for (let result of selectedResults) {
+results.push({
+body: proto.Message.InteractiveMessage.Body.fromObject({ text: null }),
+footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: textbot }),
+header: proto.Message.InteractiveMessage.Header.fromObject({
+title: '' + result.title,
+hasMediaAttachment: true,
+videoMessage: await createVideoMessage(result.nowm)
+}),
+nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({ buttons: [] })})}
+const responseMessage = generateWAMessageFromContent(message.chat, {
+viewOnceMessage: {
+message: {
+messageContextInfo: {
+deviceListMetadata: {},
+deviceListMetadataVersion: 2
+},
+interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+body: proto.Message.InteractiveMessage.Body.create({ text: '🚩 Resultado de: ' + text }),
+footer: proto.Message.InteractiveMessage.Footer.create({ text: '🔎 Tiktok - Busquedas' }),
+header: proto.Message.InteractiveMessage.Header.create({ hasMediaAttachment: false }),
+carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({ cards: [...results] })})}}
+}, { quoted: message })
+await message.react(done)
+await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id })
+} catch (error) {
+await conn.reply(message.chat, error.toString(), message)
+}}
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗]*\n\nuso del comando correcto:\n\n${usedPrefix + command} edits de mia kalifa`;;
-  const res = await fetch(`https://api.ikyy.my.id/tiktoksearch?text=${text}`);        
-  const data = await res.json();
-  const json = data.result[0];
-  await conn.sendFile(m.chat, json.play, 'tiktok.mp4', `
-*T I K T O K  - S E A R C H*
-
-*Titulo 📋:* ${json.title}
-`, m);
-  await conn.sendFile(m.chat, json.music, 'error.mp3', null, m, true);
-};
-
-handler.help = ['tiktoksearch'];
-handler.command = /^(tiktoksearch|ttsearch|tiktoks|ttsr)$/i;
-handler.tags = ['downloader'];
-handler.limit = true;
-handler.group = false;
-handler.premium = false;
-handler.owner = false;
-handler.admin = false;
-handler.botAdmin = false;
-handler.fail = null;
-handler.private = false;
-
-export default handler;
+handler.help = ['tiktoksearch <txt>']
+handler.estrellas = 1
+handler.register = true
+handler.tags = ['buscador']
+handler.command = ['tiktoksearch', 'tiktoks']
+export default handler
