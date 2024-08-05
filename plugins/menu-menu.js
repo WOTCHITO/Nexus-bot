@@ -1,3 +1,5 @@
+//CÓDIGO ADAPTADO POR https://github.com/GataNina-Li | @gata_dios & https://github.com/AzamiJs | @Azami
+
 import fs from 'fs'
 import { parsePhoneNumber } from 'libphonenumber-js'
 import fetch from 'node-fetch'
@@ -26,24 +28,23 @@ let fechaMoment, formatDate, nombreLugar, ciudad = null; const phoneNumber = '+'
 //FAKES
 let a = {'key': {'participants': '0@s.whatsapp.net', 'fromMe': false, 'id': '3B64558B07848BD81108C1D14712018E'}, 'message': {'locationMessage': {'name': `${user}`, 'jpegThumbnail': await (await fetch(pp)).buffer(), 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'}
 const ftrol = { key : { remoteJid: 'status@broadcast', participant : '0@s.whatsapp.net' }, message: { orderMessage: { itemCount : 2023, status: 1, surface : 1, message: `${user}!`, orderTitle: `▮Menu ▸`, sellerJid: '0@s.whatsapp.net' }}}
-const fload = { key : { message: `Nexus-Bot-MD` + `\nJxtxn`, thumbnail: await (await fetch(pp)).buffer(), sellerJid: '0@s.whatsapp.net' }}
+const fload = { key : { message: `BaileyBot-MD 🍧` + `\nJxtxn`, thumbnail: await (await fetch(pp)).buffer(), sellerJid: '0@s.whatsapp.net' }}
 
-m.react('☄️')
-//conn.sendMessage(m.chat, { react: { text: '🏷️', key: m.key }})
+m.react('🏷️')
 
-let listSections = []    
-listSections.push({
-title: '',
-rows: [{ header: "Menu Completo", title: "", id: `.allmenu`, description: `Para ver todos los comandos\n` }, { header: "Sub-bot", title: "", id: `.jadibot --code`, description: `Para volverte sub-bot 🤖\n` },
-{ header: "Velocidad", title: "", id: `.ping`, description: `Ver velocidad del bot\n` },
-{ header: "Play", title: "", id: `.play`, description: `Descarga tus musicas favoritas 🎧\n` },
-{ header: "creador", title: "", id: `.owner`, description: `Contacta a mi creador` }
-]})
-await conn.sendList(m.chat, '👋🏻 Hola, Bienvenido A Mi Sub Menú\n\n*Creador:* Eder\n*Versión:* 1.0.0\n\n si hay algún error puedes contactarme, usa el comando: .owner\n\nGracias¡! 🔴', null, `Selecione la opción correcta`, listSections, { mentions: [m.sender]}, {quoted: m})
+let menu = `*👋 Hola, ${user}*
 
-//await conn.reply(m.chat, menu, a, { contextInfo: { externalAdReply: {title: '👋 ¡Hola!', body: saludo, sourceUrl: ig, thumbnail: await (await fetch(pp)).buffer() }}})
+_${formatDate}_
 
-} catch (e) {
+*País*: ${nombreLugar} 
+*Ciudad*: ${ciudad}
+
+!allmenu
+_(Para ver el menú completo)_`
+
+await conn.reply(m.chat, menu, a, { contextInfo: { externalAdReply: {title: '👋 ¡Hola!', body: saludo, sourceUrl: ig, thumbnail: await (await fetch(pp)).buffer() }}})
+
+} catch {
 conn.reply(m.chat, `*🚩 Ocurrió un fallo*`, m, fake, )
 console.log(e)
 }}
