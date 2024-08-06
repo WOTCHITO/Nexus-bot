@@ -37,7 +37,7 @@ return waifus[indiceAleatorio]}
 
 // Función para mostrar la waifu obtenida
 function mostrarWaifu(waifu) {
-m.reply(`🚩 Nombre: ${waifu.nombre}\n✨️ Fuente: ${waifu.anime}\n💰 Valor: ${waifu.precio})}
+m.reply(`🚩 Nombre: ${waifu.nombre}\n✨️ Fuente: ${waifu.anime}\n💰 Valor: ${waifu.precio}`)}
 
 // Ejecuta la función para obtener y mostrar una waifu aleatoria
 const waifuAleatoria = obtenerWaifuAleatoria();
