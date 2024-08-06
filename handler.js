@@ -305,12 +305,7 @@ import { generateWAMessageFromContent } from "@whiskeysockets/baileys"
  if (name != 'owner-unbanuser.js' && user?.banned) 
  return 
  } 
-//Antispam 2                
-if (user.antispam2 && isROwner) return
-let time = global.db.data.users[m.sender].spam + 3000
-if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`[ SPAM ]`) 
-global.db.data.users[m.sender].spam = new Date * 1
-}
+
  let adminMode = global.db.data.chats[m.chat].modoadmin 
  let curiosity = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}` 
  if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && curiosity) return  
