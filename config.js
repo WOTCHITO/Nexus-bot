@@ -2,9 +2,10 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath, pathToFileURL } from 'url'
 
-global.owner = [['573027866596', 'EDER💻⁷', true],
-['50558124470', 'Ender Owner🖥️', true],
-['595972157130', 'Ivan Owner☄️', true]]
+global.owner = [
+['573027866596', '👑 Creador 👑', true],
+['50558124470'],
+['595972157130']]
 
 global.botNumberCode = ''
 global.confirmCode = ''
@@ -22,12 +23,12 @@ global.jxtxn = 'eder'
 global.cb = '⏤͟͟͞͞Nexus bot-ＭＤ'
 
 //Las Versiones Y Entre Otros
-global.vs = 'V2'
+global.vs = '2.0.1'
 global.library = 'Baileys'
 global.baileys = '@whiskeysockets/baileys'
 global.lenguaje = 'Español'
 global.menudi = ['⛶','❏','⫹⫺']
-global.dev = 'GataNina-Li'
+global.dev = 'Eder'
 global.devnum = '+593 96 826 3524'
 
 let file = fileURLToPath(import.meta.url)
