@@ -1,33 +1,49 @@
-// RollWaifu.js
+/*
+🍧 Codigo Realizado Por : 
+• OfcDiego (https://github.com/OfcDiego)
+*/
 
-// Array de waifus
+var handler = async (m, { text,  usedPrefix, command }) => {
+
+//rollwaifus
 const waifus = [
-  { nombre: 'Mikasa Ackerman', anime: 'Shingeki no Kyojin' },
-  { nombre: 'Asuna Yuuki', anime: 'Sword Art Online' },
-  { nombre: 'Hestia', anime: 'DanMachi' },
-  { nombre: 'Rias Gremory', anime: 'High School DxD' },
-  { nombre: 'Saber', anime: 'Fate/stay night' },
-  // Agrega más waifus aquí...
-];
+{ nombre: 'Ruby Hoshino', anime: 'Oshi no Ko', precio: '5' },
+{ nombre: 'Mikasa Ackerman', anime: 'Shingeki no Kyojin', precio: '10' },
+{ nombre: 'Asuna Yuuki', anime: 'Sword Art Online', precio: '50' },
+{ nombre: 'Rem', anime: 'Re:Zero', precio: '80' },
+{ nombre: 'Hestia', anime: 'DanMachi', precio: '100' },
+{ nombre: 'Emilia', anime: 'Re:Zero', precio: '120' },
+{ nombre: 'Rias Gremory', anime: 'High School DxD', precio: '200' },
+{ nombre: 'Saber', anime: 'Fate/stay night', precio: '300' },
+{ nombre: 'Mini Yaemori', anime: 'Rent-A-Girlfriend', precio: '400' },
+{ nombre: 'Sumi Sakurasawa', anime: 'Rent-A-Girlfriend', precio: '450' },
+{ nombre: 'Ai Hoshino', anime: 'Oshi no Ko', precio: '500' },
+{ nombre: 'Kana Arima', anime: 'Oshi no Ko', precio: '550' },
+{ nombre: 'Akane Kurokawa', anime: 'Oshi no Ko', precio: '600' },
+{ nombre: 'Mem-cho', anime: 'Oshi no Ko', precio: '650' },
+{ nombre: 'Yotsuba Nakano', anime: 'Las Quintillizas', precio: '700' },
+{ nombre: 'Nino Nakano', anime: 'Las Quintillizas', precio: '750' },
+{ nombre: 'Monkey D. Luffy', anime: 'One Piece', precio: '790' },
+{ nombre: 'Miku Nakano', anime: 'Las Quintillizas', precio: '800' },
+{ nombre: 'Itsuki Nakano', anime: 'Las Quintillizas', precio: '850' },
+{ nombre: 'Daddy Dearest (3)', anime: 'Friday Night Funkin', precio: '855' },
+// Agrega más waifus aquí...
+]
 
 // Función para obtener una waifu aleatoria
 function obtenerWaifuAleatoria() {
-  const indiceAleatorio = Math.floor(Math.random() * waifus.length);
-  return waifus[indiceAleatorio];
-}
+const indiceAleatorio = Math.floor(Math.random() * waifus.length)
+return waifus[indiceAleatorio]}
 
 // Función para mostrar la waifu obtenida
 function mostrarWaifu(waifu) {
-  console.log(`Tu waifu es: ${waifu.nombre} de ${waifu.anime}`);
-}
+m.reply(`🚩 Nombre: ${waifu.nombre}\n✨️ Fuente: ${waifu.anime}\n💰 Valor: ${waifu.precio})}
 
 // Ejecuta la función para obtener y mostrar una waifu aleatoria
 const waifuAleatoria = obtenerWaifuAleatoria();
-mostrarWaifu(waifuAleatoria);
-/*};
-handler.help = ['rollwaifu'];
-handler.tags = ['anime'];
-handler.command = ['rw', 'rollwaifu'];
-handler.register = true;
+mostrarWaifu(waifuAleatoria)}
 
-export default handler;*/
+handler.command = ['rw', 'rollwaifu']
+handler.help = ['rw']
+handler.tags = ['anime']
+export default handler
